@@ -1,0 +1,205 @@
+﻿country;geo;siec;type;unit;source;scenario;year;cap
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1990;0.2
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1991;0.2
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1992;0.2
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1993;0.1
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1994;0.2
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1995;0.3
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1996;2
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1997;2.1
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1998;2.8
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;1999;2.8
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2000;2.8
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2001;4.5
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2002;5.3
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2003;5.4
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2004;8.7
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2005;11.6
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2006;11.6
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2007;11.6
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2008;13.6
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2009;17.6
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2010;42.3
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2011;45.5
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2012;49.4
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2013;60.3
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2014;60.3
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2015;60.3
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2016;75.4
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2017;75.4
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2018;75.4
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2019;75.4
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2020;87.1
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2021;88.3
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2022;88.3
+Switzerland;CH;RA300;Wind;MW;BFE;GES2023;2023;88.3
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1990;0
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1991;0.1
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1992;0.1
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1993;0
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1994;0.1
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1995;0.1
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1996;0.5
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1997;2
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1998;2.7
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;1999;3.3
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2000;3
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2001;4
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2002;5.4
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2003;5.2
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2004;6.3
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2005;8.4
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2006;15.3
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2007;16
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2008;18.5
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2009;22.6
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2010;36.6
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2011;70.1
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2012;88.1
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2013;89.5
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2014;100.9
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2015;110
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2016;108.6
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2017;132.6
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2018;121.8
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2019;145.9
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2020;145.5
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2021;145
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2022;149.7
+Switzerland;CH;RA300;Wind;GWh;BFE;GES2023;2023;168.5
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1990;0.2
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1991;0.2
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1992;0.2
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1993;0.1
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1994;0.2
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1995;0.3
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1996;2
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1997;2.1
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1998;2.8
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;1999;2.8
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2000;2.8
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2001;4.5
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2002;5.3
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2003;5.4
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2004;8.7
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2005;11.6
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2006;11.6
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2007;11.6
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2008;13.6
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2009;17.6
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2010;42.3
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2011;45.5
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2012;49.4
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2013;60.3
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2014;60.3
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2015;60.3
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2016;75.4
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2017;75.4
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2018;75.4
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2019;75.4
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2020;87.1
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2021;88.3
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2022;88.3
+Switzerland;CH;RA310;Wind on shore;MW;BFE;GES2023;2023;88.3
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1990;0
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1991;0.1
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1992;0.1
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1993;0
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1994;0.1
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1995;0.1
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1996;0.5
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1997;2
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1998;2.7
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;1999;3.3
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2000;3
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2001;4
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2002;5.4
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2003;5.2
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2004;6.3
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2005;8.4
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2006;15.3
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2007;16
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2008;18.5
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2009;22.6
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2010;36.6
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2011;70.1
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2012;88.1
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2013;89.5
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2014;100.9
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2015;110
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2016;108.6
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2017;132.6
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2018;121.8
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2019;145.9
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2020;145.5
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2021;145
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2022;149.7
+Switzerland;CH;RA310;Wind on shore;GWh;BFE;GES2023;2023;168.5
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1990;2.5
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1991;3.9
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1992;5.3
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1993;6.4
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1994;7.5
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1995;8.3
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1996;9.4
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1997;10.4
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1998;12
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;1999;13.8
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2000;15.9
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2001;18.3
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2002;20.2
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2003;21.9
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2004;24.3
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2005;28.3
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2006;30.1
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2007;37.4
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2008;49.4
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2009;79.5
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2010;125.4
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2011;222.9
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2012;436.5
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2013;755.6
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2014;1060.6
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2015;1394
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2016;1664.2
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2017;1906.4
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2018;2173.2
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2019;2498.1
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2020;2973.4
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2021;3655.3
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2022;4736.7
+Switzerland;CH;RA420;Solar photovoltaic;GW;BFE;GES2023;2023;6374.7
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1990;1.5
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1991;2.4
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1992;3.4
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1993;4.4
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1994;5.2
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1995;5.9
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1996;6.7
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1997;7.4
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1998;8.4
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;1999;9.7
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2000;11.2
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2001;13
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2002;14.7
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2003;17.6
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2004;18.1
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2005;20.7
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2006;23.8
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2007;28.6
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2008;36.7
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2009;54.4
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2010;93.6
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2011;168.1
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2012;299.5
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2013;500.5
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2014;841.6
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2015;1118.5
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2016;1333.5
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2017;1683.2
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2018;1945.1
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2019;2177.7
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2020;2598.7
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2021;2842
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2022;3857.8
+Switzerland;CH;RA420;Solar photovoltaic;GWh;BFE;GES2023;2023;4624.3
