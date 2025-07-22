@@ -1,23 +1,36 @@
 # Libraries --------------------------------------------------------------------
 
 library(countrycode)
-library(rio)
+library(eurostat) # Used for the geospatial map
+library(giscoR) # Used for the geospatial map
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(rio) # Used for importing excel sheets
 library(tidyverse)
 
 # Lists ------------------------------------------------------------------------
 
 # Lists of the 28 countries that are included.
 
-countries <- list("Austria", "Belgium", "Bulgaria", "Czechia", "Germany", 
-                  "Denmark", "Estonia", "Greece", "Spain", "Finland", "France", 
-                  "Croatia", "Hungary", "Ireland", "Italy", "Lithuania", 
-                  "Luxembourg", "Latvia", "Netherlands", "Norway", "Poland", 
-                  "Portugal", "Romania", "Sweden", "Slovenia", "Slovakia", 
+countries <- list("Austria", "Belgium", "Bulgaria", "Croatia", "Czechia", 
+                  "Denmark", "Estonia", "Finland", "France", "Germany", 
+                  "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", 
+                  "Luxembourg", "Netherlands", "Norway", "Poland", "Portugal", 
+                  "Romania", "Slovakia", "Slovenia", "Spain", "Sweden", 
                   "Switzerland", "United Kingdom")
 
-country_codes <- list('BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'EL', 'ES', 'FR', 
-                      'HR', 'IT', 'LV', 'LT', 'LU', 'HU', 'NL', 'AT', 'PL', 'PT', 
-                      'RO', 'SI', 'SK', 'FI', 'SE', 'NO', 'CH', 'UK')
+country_codes <- list('AT', 'BE', 'BG', 'HR', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE',
+                      'EL', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'NL', 'NO', 'PL',
+                      'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'CH', 'UK')
+
+countries_geo <- list("Austria", "Belgium", "Bulgaria", "Czechia", "Germany", 
+                      "Denmark", "Estonia", "Greece", "Spain", "Finland", "France", 
+                      "Croatia", "Hungary", "Ireland", "Italy", "Lithuania", 
+                      "Luxembourg", "Latvia", "Netherlands", "Norway", "Poland", 
+                      "Portugal", "Romania", "Sweden", "Slovenia", "Slovakia", 
+                      "Switzerland", "United Kingdom", "Kosovo", "Republic of Serbia",
+                      'North Macedonia', 'Albania', 'Bosnia and Herzegovina', 
+                      'Moldova', 'Montenegro')
 
 # EU Energy Policy Review ------------------------------------------------------
 
@@ -90,3 +103,15 @@ euro_prod <- nrg_prod_nf_retrieve %>% # Filters countries
 ## Remove temporary datasets ---------------------------------------------------
 
 rm(nrg_prod_nf_retrieve, nrg_retrive, siec, switzerland)
+
+# Geodata ----------------------------------------------------------------------
+
+# Geodata from rnaturalearth and rnaturalearthdata
+
+geodata <- ne_countries(scale = 50, returnclass = 'sf') %>% 
+  filter(admin %in% countries_geo) %>% 
+  mutate(geo = iso_a2_eh,
+         geo = case_when(geo == 'GB' ~ 'UK',
+                         geo == 'GR' ~ 'EL',
+                         .default = as.character(geo))) %>% 
+  rename(status = type)

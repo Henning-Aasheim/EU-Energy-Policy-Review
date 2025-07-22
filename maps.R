@@ -1,0 +1,98 @@
+# Libraries --------------------------------------------------------------------
+
+library(tmap)
+library(sf)
+library(tidyverse)
+
+# Lists ------------------------------------------------------------------------
+
+# Lists of the 28 countries that are included.
+
+countries <- list("Austria", "Belgium", "Bulgaria", "Croatia", "Czechia", 
+                  "Denmark", "Estonia", "Finland", "France", "Germany", 
+                  "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", 
+                  "Luxembourg", "Netherlands", "Norway", "Poland", "Portugal", 
+                  "Romania", "Slovakia", "Slovenia", "Spain", "Sweden", 
+                  "Switzerland", "United Kingdom")
+
+country_codes <- list('AT', 'BE', 'BG', 'HR', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE',
+                      'EL', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'NL', 'NO', 'PL',
+                      'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'CH', 'UK')
+
+countries_geo <- list("Austria", "Belgium", "Bulgaria", "Czechia", "Germany", 
+                      "Denmark", "Estonia", "Greece", "Spain", "Finland", "France", 
+                      "Croatia", "Hungary", "Ireland", "Italy", "Lithuania", 
+                      "Luxembourg", "Latvia", "Netherlands", "Norway", "Poland", 
+                      "Portugal", "Romania", "Sweden", "Slovenia", "Slovakia", 
+                      "Switzerland", "United Kingdom", "Kosovo", "Republic of Serbia",
+                      'North Macedonia', 'Albania', 'Bosnia and Herzegovina', 
+                      'Moldova', 'Montenegro')
+
+# Capacity targets 2030 --------------------------------------------------------
+
+trg_2030 <- eu_nrg %>% 
+  filter(target == 1 & year == 2030 & unit == 'GW' & siec %in% c('RA310', 'RA320', 'RA420'))
+
+target_2030 <- inner_join(geodata, trg_2030, by = 'geo') 
+
+tm_shape(geodata, projection = 'EPSG:3035',
+         xlim = c(2400000, 6000000),
+         ylim = c(1320000, 5500000)) +
+  tm_fill('grey') +
+  tm_borders(col = 'darkgrey') +
+  tm_shape(target_2030) +
+  tm_polygons('Capacity targets for 2030 (GW)', title = 'Targets', fill = 'cap',
+              breaks = c(0, 5, 10, 20, 50, 100, 200)) +
+  tm_facets('type', drop.NA.facets = T) +
+  tm_layout(legend.position = tm_pos_out('right', 'center')) +
+  tm_title('Capacity targets for 2030 (GW)')
+
+# Capacity targets 2040 --------------------------------------------------------
+
+trg_2040 <- eu_nrg %>% 
+  filter(target == 1 & year == 2040 & unit == 'GW' & siec %in% c('RA310', 'RA320', 'RA420'))
+
+target_2040 <- inner_join(geodata, trg_2040, by = 'geo') 
+
+tm_shape(geodata, projection = 'EPSG:3035',
+         xlim = c(2400000, 6000000),
+         ylim = c(1320000, 5500000)) +
+  tm_fill('grey') +
+  tm_borders(col = 'darkgrey') +
+  tm_shape(target_2040) +
+  tm_polygons('Capacity targets for 2040 (GW)', title = 'Targets', fill = 'cap', 
+              breaks = c(0, 5, 10, 20, 50, 100, 200)) +
+  tm_facets('type', drop.NA.facets = T) +
+  tm_layout(legend.position = tm_pos_out('right', 'center')) +
+  tm_title('Capacity targets for 2040 (GW)')
+
+# Map of the regions -----------------------------------------------------------
+
+regions <- data.frame(
+  country = c("Austria", "Belgium", "Bulgaria", "Croatia", "Czechia", 
+                 "Denmark", "Estonia", "Finland", "France", "Germany", 
+                 "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", 
+                 "Luxembourg", "Netherlands", "Norway", "Poland", "Portugal", 
+                 "Romania", "Slovakia", "Slovenia", "Spain", "Sweden", 
+                 "Switzerland", "United Kingdom"),
+  geo = c('AT', 'BE', 'BG', 'HR', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE',
+                    'EL', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'NL', 'NO', 'PL',
+                    'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'CH', 'UK'),
+  regions = c('Central', 'West', 'East', 'Adriatic', 'Central', 
+              'Nordics', 'Baltics and Poland', 'Nordics', 'West',
+              'Central', 'Adriatic', 'East', 'British Isles', 'Adriatic',
+              'Baltics and Poland', 'Baltics and Poland', 'West', 'West',
+              'Nordics', 'Baltics and Poland', 'Iberia', 'East', 'East', 
+              'Central', 'Iberia', 'Nordics', 'Central', 'British Isles')
+)
+
+regions_map <- inner_join(geodata, regions, by = 'geo')
+
+tm_shape(geodata, projection = 'EPSG:3035',
+         xlim = c(2400000, 6000000),
+         ylim = c(1320000, 5500000)) +
+  tm_fill('grey') +
+  tm_borders(col = 'darkgrey') +
+  tm_shape(regions_map) +
+  tm_polygons('Capacity targets for 2040 (GW)', title = 'Targets', fill = 'regions')
+
