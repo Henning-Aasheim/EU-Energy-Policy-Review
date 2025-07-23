@@ -75,15 +75,39 @@ regions <- data.frame(
                  "Luxembourg", "Netherlands", "Norway", "Poland", "Portugal", 
                  "Romania", "Slovakia", "Slovenia", "Spain", "Sweden", 
                  "Switzerland", "United Kingdom"),
-  geo = c('AT', 'BE', 'BG', 'HR', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE',
-                    'EL', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'NL', 'NO', 'PL',
-                    'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'CH', 'UK'),
-  regions = c('Central', 'West', 'East', 'Adriatic', 'Central', 
-              'Nordics', 'Baltics and Poland', 'Nordics', 'West',
-              'Central', 'Adriatic', 'East', 'British Isles', 'Adriatic',
-              'Baltics and Poland', 'Baltics and Poland', 'West', 'West',
-              'Nordics', 'Baltics and Poland', 'Iberia', 'East', 'East', 
-              'Central', 'Iberia', 'Nordics', 'Central', 'British Isles')
+  geo = c('AT', 'BE', 'BG', 'HR', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'EL', 'HU', 
+          'IE', 'IT', 'LV', 'LT', 'LU', 'NL', 'NO', 'PL', 'PT', 'RO', 'SK', 'SI', 
+          'ES', 'SE', 'CH', 'UK'),
+# Regions are divided roughly based on the regions from van Greevenbroek et al.
+  regions = c('Central', # Austria
+              'West', # Belgium
+              'East', # Bulgaria
+              'Adriatic', # Croatia
+              'Central', # Czechia
+              'Nordics', # Denmark
+              'Baltics and Poland', # Estonia 
+              'Nordics', # Finland
+              'West', # France
+              'Central', # Germany
+              'Adriatic', # Greece
+              'East', # Hungary
+              'British Isles', # Ireland
+              'Adriatic', # Italy
+              'Baltics and Poland', # Latvia 
+              'Baltics and Poland', # Lithuania
+              'West', # Luxembourg
+              'West', # Netherlands
+              'Nordics', # Norway
+              'Baltics and Poland', # Poland 
+              'Iberia', # Portugal
+              'East', # Romania
+              'East', # Slovakia
+              'Central', # Slovenia
+              'Iberia', # Spain
+              'Nordics', # Sweden
+              'Central', # Switzerland
+              'British Isles' # UK
+              ) 
 )
 
 regions_map <- inner_join(geodata, regions, by = 'geo')
@@ -94,5 +118,63 @@ tm_shape(geodata, projection = 'EPSG:3035',
   tm_fill('grey') +
   tm_borders(col = 'darkgrey') +
   tm_shape(regions_map) +
-  tm_polygons('Capacity targets for 2040 (GW)', title = 'Targets', fill = 'regions')
+  tm_polygons(title = 'Targets', fill = 'regions')
+
+# Approach map -----------------------------------------------------------------
+
+approach <- data.frame(
+  country = c("Austria", "Belgium", "Bulgaria", "Croatia", "Czechia", 
+              "Denmark", "Estonia", "Finland", "France", "Germany", 
+              "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", 
+              "Luxembourg", "Netherlands", "Norway", "Poland", "Portugal", 
+              "Romania", "Slovakia", "Slovenia", "Spain", "Sweden", 
+              "Switzerland", "United Kingdom"),
+  geo = c('AT', 'BE', 'BG', 'HR', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'EL', 'HU', 
+          'IE', 'IT', 'LV', 'LT', 'LU', 'NL', 'NO', 'PL', 'PT', 'RO', 'SK', 'SI', 
+          'ES', 'SE', 'CH', 'UK'),
+# Approach: 0 = Bottom up, 1 = Top-Down.
+  approach = c(0, # Austria
+               1, # Belgium
+               1, # Bulgaria
+               0, # Croatia
+               0, # Czechia
+               1, # Denmark
+               0, # Estonia
+               0, # Finland
+               0, # France
+               1, # Germany
+               0, # Greece
+               0, # Hungary
+               0, # Ireland
+               0, # Italy
+               0, # Latvia
+               0, # Lithuania
+               1, # Luxembourg
+               0, # Netherlands
+               0, # Norway
+               1, # Poland
+               0, # Portugal
+               0, # Romania
+               0, # Slovakia
+               1, # Slovenia
+               0, # Spain
+               0, # Sweden
+               0, # Switzerland
+               1  # UK
+               )
+)
+
+approach_map <- inner_join(geodata, approach, by = 'geo') %>% 
+  mutate(approach = as.factor(approach))
+
+tm_shape(geodata, projection = 'EPSG:3035',
+         xlim = c(2400000, 6000000),
+         ylim = c(1320000, 5500000)) +
+  tm_fill('grey') +
+  tm_borders(col = 'darkgrey') +
+  tm_shape(approach_map) +
+  tm_polygons(title = 'Targets', fill = 'approach')
+
+
+
 
