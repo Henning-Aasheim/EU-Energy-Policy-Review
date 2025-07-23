@@ -1,12 +1,11 @@
 # Libraries --------------------------------------------------------------------
 
-library(countrycode)
-library(eurostat) # Used for the geospatial map
-library(giscoR) # Used for the geospatial map
-library(rnaturalearth)
-library(rnaturalearthdata)
+library(countrycode) # For compability between naming standards
+#library(eurostat) # If more data is needed
+library(rnaturalearth) # Used to download map
+library(rnaturalearthdata) # Used to download higher resolution map
 library(rio) # Used for importing excel sheets
-library(tidyverse)
+library(tidyverse) # Used for data manipulation
 
 # Lists ------------------------------------------------------------------------
 
