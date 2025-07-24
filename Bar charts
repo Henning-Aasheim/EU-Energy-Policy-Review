@@ -11,7 +11,7 @@ dta <- as.data.table(en_nrg)
 
 values_of_interest <- list("RA300", "RA400")
 
-#A for loop which itereates over the different countries where black is 2023 and grey is the target of 2030
+#A for loop which iterates over the different countries where black is 2023 and grey is the target of 2030
 
 for (x in values_of_interest){
       plot <- ggplot(dta[(year == 2023 | (year == 2030& target == 1)) & unit == "GW" & siec == x], #This subdivides the data
