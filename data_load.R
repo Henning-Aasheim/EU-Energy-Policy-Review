@@ -52,12 +52,12 @@ for (i in 1:56) { # for the numbers 1 to 56 (I have 56 files) do the following :
 }
 
 ninja <- do.call(bind_rows, ninja_list) %>% # Binds the data from ninja_list to one dataframe.
-  pivot_longer(cols = c('national_mean', 'onshore_mean', 'offshore_mean'), 
+  pivot_longer(cols = c('national', 'onshore', 'offshore'), 
                names_to = 'type_2', values_to = 'cf') %>% 
-  mutate(siec = case_when(type == 'pv' & type_2 == 'national_mean' ~ 'RA420',
-                          type == 'wind' & type_2 == 'onshore_mean' ~ 'RA310',
-                          type == 'wind' & type_2 == 'offshore_mean' ~ 'RA320',
-                          type == 'wind' & cf[which()]))
+  mutate(siec = case_when(type == 'pv' & type_2 == 'national' ~ 'RA420',
+                          type == 'wind' & type_2 == 'onshore' ~ 'RA310',
+                          type == 'wind' & type_2 == 'offshore' ~ 'RA320',
+                          .default = NA))
 
 
 
