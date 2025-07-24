@@ -1,9 +1,13 @@
+# Libraries --------------------------------------------------------------------
+
 library(data.table)
 library(tidyverse)
 
-# Creates a data.table structure from the data set which is imported 
+# Direct import of data (this must change) 
 
 eu_nrg <- import_list("EU Energy policy Review.xlsx", which = 6:33, rbind = T)
+
+# Creates a data.table structure from the data set which is imported 
 
 dta <- as.data.table(en_nrg)
 
