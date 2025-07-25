@@ -7,7 +7,7 @@ Here are some information. First on the regions we ahve chosen, and then some im
 
 ## Regions
 
-![Map over regions](/img/regions.png | width = 50)
+<img src='/img/regions.png' width=50%)
 
 ## Target map
 
