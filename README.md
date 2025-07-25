@@ -7,12 +7,12 @@ Here are the main milestones we have achieved up to now:
 
 ## Regions
 
-![/img/regions.png]
+![Map over regions](/img/regions.png)
 
 ## Target map
 
-![/img/map_2030.png]
+![Map over 2030 targets](/img/map_2030.png)
 
 ## Bar chart
 
-![/img/bar.png]
+![Bar chart of targets up and to 2040](/img/bar.png)
