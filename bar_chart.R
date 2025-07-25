@@ -45,7 +45,12 @@ eu_nrg %>%
   select(!c(`2023`, `2030`, `2040`)) %>% # Removes the whole cap numbers.
   pivot_longer(cols = starts_with('cap'), names_to = 'year', values_to = 'cap') %>% # Reverts list to long format.
   mutate(year = as.numeric(str_remove(year, '[^0-9]+'))) %>%  # Removes cap_ and makes the years numeric.
-  ggplot(aes(x = fct_reorder(country, cap), y = cap, fill = factor(year, levels = c()))) +
-  geom_bar(stat = 'identity', position = 'stack') +
+  ggplot(aes(x = fct_reorder(country, cap), y = cap)) +
+  geom_bar(aes(fill = factor(year, levels = c('2040', '2030', '2023'))), stat = 'identity', position = 'stack') +
   facet_wrap(~factor(type), scale = 'free_x') +
-  coord_flip()
+  coord_flip() +
+  scale_fill_manual(values = c('#227C9D', '#17C3B2', '#FFCB77')) +
+  labs(x = 'Countries',
+       y = 'Capacity',
+       fill = 'Year') +
+  theme_minimal()
