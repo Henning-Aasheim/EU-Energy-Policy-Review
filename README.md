@@ -7,18 +7,18 @@ Here are some information. First on the regions we ahve chosen, and then some im
 
 ## Regions
 
-<center>
+<p align='center'>
   <img src='/img/regions.png' width=40%>
-</center>
+</p>
 
 ## Target map
 
-<center>
+<p align='center'>
   <img src='/img/map_2030.png' width=40%>
-</center>
+</p>
 
 ## Bar chart
 
-<center>
+<p align='center'>
   <img src='/img/bar.png' width=50%>
-</center>
+</p>
