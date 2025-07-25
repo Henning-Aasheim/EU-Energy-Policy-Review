@@ -140,7 +140,9 @@ load('data/siec.Rdata')
 # Switzerland is not included in the Eurostat data, so this section loads Swiss 
 # data. 
 
-switzerland <- read.csv('data/switzerland.csv', sep = ';')
+switzerland <- read.csv('data/switzerland.csv', sep = ',') %>% 
+  mutate(cap = ifelse(unit == 'MW', cap/1000, cap),
+         unit = ifelse(unit == 'MW', 'GW', unit))
 
 ## Loads capacity data ---------------------------------------------------------
 
