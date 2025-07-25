@@ -28,16 +28,24 @@ for (x in values_of_interest){
 
 euro_cap_2023 <- euro_cap %>% 
   filter(year == 2023 & siec %in% c('RA310', 'RA320', 'RA420')) %>% 
-  select(!c(source, scenario)) %>% 
-  mutate(target = 0)
+  select(!c(source, scenario))
 
 eu_nrg %>% 
   filter(siec %in% c('RA310', 'RA320', 'RA420') & unit == 'GW' & 
            ((year == 2030 & target == 1) | (year == 2040 & target == 1))) %>% 
-  select(country, geo, siec, type, unit, year, cap, target) %>% 
+  select(country, geo, siec, type, unit, year, cap) %>% 
   rbind(euro_cap_2023) %>% 
-  complete(year, nesting(country, geo, siec, type)) %>% 
-  ggplot(aes(x = fct_reorder(country, cap), y = cap, fill = factor(year))) +
-  geom_bar(stat = 'identity', position = 'dodge') +
+#  complete(year, nesting(country, geo, siec, type)) %>% 
+  pivot_wider(names_from = year, values_from = cap) %>% 
+  mutate(cap_2023 = `2023`,
+         cap_2023 = ifelse(is.na(cap_2023), 0, cap_2023), # Makes the calculations possible, the assumption, however, is wrong.
+         cap_2030 = `2030` - `cap_2023`,
+         cap_2030 = ifelse(is.na(cap_2030), 0, cap_2030), # Makes the calculations possible, the assumption, however, is wrong.
+         cap_2040 = `2040` - (`cap_2030` + `cap_2023`)) %>% 
+  select(!c(`2023`, `2030`, `2040`)) %>% # Removes the whole cap numbers.
+  pivot_longer(cols = starts_with('cap'), names_to = 'year', values_to = 'cap') %>% # Reverts list to long format.
+  mutate(year = as.numeric(str_remove(year, '[^0-9]+'))) %>%  # Removes cap_ and makes the years numeric.
+  ggplot(aes(x = fct_reorder(country, cap), y = cap, fill = factor(year, levels = c()))) +
+  geom_bar(stat = 'identity', position = 'stack') +
   facet_wrap(~factor(type), scale = 'free_x') +
   coord_flip()
