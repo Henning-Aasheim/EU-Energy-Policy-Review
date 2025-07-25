@@ -24,10 +24,20 @@ for (x in values_of_interest){
   print(plot)
 }
 
+# Including Eurostat data ------------------------------------------------------
+
+euro_cap_2023 <- euro_cap %>% 
+  filter(year == 2023 & siec %in% c('RA310', 'RA320', 'RA420')) %>% 
+  select(!c(source, scenario)) %>% 
+  mutate(target = 0)
+
 eu_nrg %>% 
-  filter(siec %in% c('RA310', 'RA320', 'RA420') & unit == 'GW' &
-         (year == 2023 | (year == 2030 & target == 1) | (year == 2040 & target == 1))) %>% 
+  filter(siec %in% c('RA310', 'RA320', 'RA420') & unit == 'GW' & 
+           ((year == 2030 & target == 1) | (year == 2040 & target == 1))) %>% 
+  select(country, geo, siec, type, unit, year, cap, target) %>% 
+  rbind(euro_cap_2023) %>% 
+  complete(year, nesting(country, geo, siec, type)) %>% 
   ggplot(aes(x = fct_reorder(country, cap), y = cap, fill = factor(year))) +
-  geom_bar(stat = 'identity', position = 'dodge', alpha = .7) +
-  facet_wrap(~factor(siec), scale = 'free_x') +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  facet_wrap(~factor(type), scale = 'free_x') +
   coord_flip()
