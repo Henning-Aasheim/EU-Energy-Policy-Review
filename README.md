@@ -3,16 +3,16 @@ This is a repository for files associated with the EU Energy Policy Review proje
 
 We will include all documents in this repository, what exactly this entails will become clear eventually...
 
-Here are the main milestones we have achieved up to now:
+Here are some information. First on the regions we ahve chosen, and then some images showing some of the data.
 
 ## Regions
 
-![Map over regions](/img/regions.png)
+![Map over regions](/img/regions.png | width = 50)
 
 ## Target map
 
-![Map over 2030 targets](/img/map_2030.png)
+![Map over 2030 targets](/img/map_2030.png | width = 50)
 
 ## Bar chart
 
-![Bar chart of targets up and to 2040](/img/bar.png)
+![Bar chart of targets up and to 2040](/img/bar.png | width = 50)
