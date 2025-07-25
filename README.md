@@ -7,12 +7,18 @@ Here are some information. First on the regions we ahve chosen, and then some im
 
 ## Regions
 
-<img src='/img/regions.png' width=50%>
+<center>
+  <img src='/img/regions.png' width=40%>
+</center>
 
 ## Target map
 
-![Map over 2030 targets](/img/map_2030.png | width = 50)
+<center>
+  <img src='/img/map_2030.png' width=40%>
+</center>
 
 ## Bar chart
 
-![Bar chart of targets up and to 2040](/img/bar.png | width = 50)
+<center>
+  <img src='/img/bar.png' width=50%>
+</center>
