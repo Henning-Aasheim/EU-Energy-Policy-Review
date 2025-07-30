@@ -120,9 +120,61 @@ eu_nrg_prod <- eu_nrg %>%
                             siec == 'RA320' & unit == 'TWh' ~ (cap*1000)/(offshore*8760),
                             siec == 'RA320' & unit == 'GWh' ~ cap/(offshore*8760),
                             siec == 'RA420' & unit == 'TWh' ~ (cap*1000)/(pv*8760),
-                            siec == 'RA420' & unit == 'GWh' ~ cap/1000/(pv*8760),
+                            siec == 'RA420' & unit == 'GWh' ~ cap/(pv*8760),
                             .default = cap_gw))
 
+eu_nrg_giga <- eu_nrg %>% 
+  left_join(capacity_factor, by = 'geo') %>% 
+  mutate(cap_gwh = NA,
+         cap_gwh = case_when(unit == 'ktoe' ~ cap*11.63, # 11.63 is used as a conversion factor between ktoe and GWh.
+                             unit == 'Mtoe' ~ (cap*1000)*11.63, # Mtoe*1000 = ktoe, then 11.63 is used as a conversion factor between ktoe and GWh.
+                             unit == 'PJ'   ~ cap*227.77778, # 227.77778 is used as a conversion factor between PJ and GWh.
+                             unit == 'TWh'  ~ cap*1000, # TWh*1000 = GWh,
+                             .default = NA),
+         cap_gw = NA,
+         cap_gw = case_when(unit == 'GW' ~ cap,
+                            unit == 'MW' ~ cap/1000,
+                            siec == 'RA310' & unit == 'TWh' ~ (cap*1000)/(onshore*8760),
+                            siec == 'RA310' & unit == 'GWh' ~ cap/(onshore*8760),
+                            siec == 'RA320' & unit == 'TWh' ~ (cap*1000)/(offshore*8760),
+                            siec == 'RA320' & unit == 'GWh' ~ cap/(offshore*8760),
+                            siec == 'RA420' & unit == 'TWh' ~ (cap*1000)/(pv*8760),
+                            siec == 'RA420' & unit == 'GWh' ~ cap/(pv*8760),
+                            .default = cap_gw),
+         cap_gwh_min = NA,
+         cap_gwh_min = case_when(unit == 'ktoe' ~ cap_min*11.63, # 11.63 is used as a conversion factor between ktoe and GWh.
+                                 unit == 'Mtoe' ~ (cap_min*1000)*11.63, # Mtoe*1000 = ktoe, then 11.63 is used as a conversion factor between ktoe and GWh.
+                                 unit == 'PJ'   ~ cap_min*227.77778, # 227.77778 is used as a conversion factor between PJ and GWh.
+                                 unit == 'TWh'  ~ cap_min*1000, # TWh*1000 = GWh,
+                                 .default = NA),
+         cap_gwh_max = NA,
+         cap_gwh_max = case_when(unit == 'ktoe' ~ cap_max*11.63, # 11.63 is used as a conversion factor between ktoe and GWh.
+                                 unit == 'Mtoe' ~ (cap_max*1000)*11.63, # Mtoe*1000 = ktoe, then 11.63 is used as a conversion factor between ktoe and GWh.
+                                 unit == 'PJ'   ~ cap_max*227.77778, # 227.77778 is used as a conversion factor between PJ and GWh.
+                                 unit == 'TWh'  ~ cap_max*1000, # TWh*1000 = GWh,
+                                 .default = NA),
+         cap_gw_min = NA,
+         cap_gw_min = case_when(unit == 'GW' ~ cap_min,
+                                unit == 'MW' ~ cap_min/1000,
+                                siec == 'RA310' & unit == 'TWh' ~ (cap_gwh_min*1000)/(onshore*8760),
+                                siec == 'RA310' & unit == 'GWh' ~ cap_gwh_min/(onshore*8760),
+                                siec == 'RA320' & unit == 'TWh' ~ (cap_gwh_min*1000)/(offshore*8760),
+                                siec == 'RA320' & unit == 'GWh' ~ cap_gwh_min/(offshore*8760),
+                                siec == 'RA420' & unit == 'TWh' ~ (cap_gwh_min*1000)/(pv*8760),
+                                siec == 'RA420' & unit == 'GWh' ~ cap_gwh_min/(pv*8760),
+                                .default = cap_gw_min),
+         cap_gw_max = NA,
+         cap_gw_max = case_when(unit == 'GW' ~ cap_max,
+                                unit == 'MW' ~ cap_max/1000,
+                                siec == 'RA310' & unit == 'TWh' ~ (cap_gwh_max*1000)/(onshore*8760),
+                                siec == 'RA310' & unit == 'GWh' ~ cap_gwh_max/(onshore*8760),
+                                siec == 'RA320' & unit == 'TWh' ~ (cap_gwh_max*1000)/(offshore*8760),
+                                siec == 'RA320' & unit == 'GWh' ~ cap_gwh_max/(offshore*8760),
+                                siec == 'RA420' & unit == 'TWh' ~ (cap_gwh_max*1000)/(pv*8760),
+                                siec == 'RA420' & unit == 'GWh' ~ cap_gwh_max/(pv*8760),
+                                .default = cap_gw_max)) %>% 
+  select(!c(unit, pv, offshore, onshore, `_file`, cap_min, cap_max, cap))
+  
 
 
 # Eurostat ---------------------------------------------------------------------
