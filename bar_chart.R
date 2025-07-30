@@ -32,7 +32,7 @@ euro_cap_2023 <- euro_cap %>%
 
 eu_nrg_giga %>% 
   filter(siec %in% c('RA310', 'RA320', 'RA420') &
-           ((year == 2030 & target == 1) | (year == 2040 & target == 1))) %>% 
+           ((year == 2030 & target == 1) | (year == 2040 & target == 1) | (year == 2023 & source == 'UKGOV'))) %>% 
   select(country, geo, siec, type, year, cap_gw) %>% 
   rename(cap = cap_gw) %>% 
   rbind(euro_cap_2023) %>% 
