@@ -33,31 +33,31 @@ countries_geo <- list("Austria", "Belgium", "Bulgaria", "Czechia", "Germany",
 
 # Data from renewables ninja ---------------------------------------------------
 
-file_names <- list.files('data/ninja') # Extracts filenames
-
-ninja_list = list() # Makes a list called ninja to be used inside the loop.
-
-for (i in 1:56) { # for the numbers 1 to 56 (I have 56 files) do the following :
-  tmp <- read.csv(paste0('data/ninja/', file_names[i]), skip = 2) %>%  # Read the csv files and put them in a temporary file
-    mutate(onshore = ifelse('onshore' %in% names(.), onshore, NA), # Check to see if the datasets include variables called onshore and offshore, if not make them and populate them with NA values. This is because some countries do not have offshore wind and the datasets are not compatible without doing this.
-           offshore = ifelse('offshore' %in% names(.), offshore, NA), # See above.
-           geo = str_extract(file_names[i], '[A-Z]+'), # Make a geo variable to identify country
-           type = str_extract(file_names[i], '(wind)|(pv)')) # Make a type variable to identify if PV or wind.
-  smr <- tmp %>% group_by(geo, type) %>%  # This is used to keep the geo and type variables when summarising.
-    summarise(national = mean(national, na.rm = T),
-              onshore = mean(onshore, na.rm = T),
-              offshore = mean(offshore, na.rm = T)) # Calculate mean for the variables.
-    
-  ninja_list[[i]] <- smr # Make a list
-}
-
-ninja <- do.call(bind_rows, ninja_list) %>% # Binds the data from ninja_list to one dataframe.
-  pivot_longer(cols = c('national', 'onshore', 'offshore'), 
-               names_to = 'type_2', values_to = 'cf') %>% 
-  mutate(siec = case_when(type == 'pv' & type_2 == 'national' ~ 'RA420',
-                          type == 'wind' & type_2 == 'onshore' ~ 'RA310',
-                          type == 'wind' & type_2 == 'offshore' ~ 'RA320',
-                          .default = NA))
+# file_names <- list.files('data/ninja') # Extracts filenames
+# 
+# ninja_list = list() # Makes a list called ninja to be used inside the loop.
+# 
+# for (i in 1:56) { # for the numbers 1 to 56 (I have 56 files) do the following :
+#   tmp <- read.csv(paste0('data/ninja/', file_names[i]), skip = 2) %>%  # Read the csv files and put them in a temporary file
+#     mutate(onshore = ifelse('onshore' %in% names(.), onshore, NA), # Check to see if the datasets include variables called onshore and offshore, if not make them and populate them with NA values. This is because some countries do not have offshore wind and the datasets are not compatible without doing this.
+#            offshore = ifelse('offshore' %in% names(.), offshore, NA), # See above.
+#            geo = str_extract(file_names[i], '[A-Z]+'), # Make a geo variable to identify country
+#            type = str_extract(file_names[i], '(wind)|(pv)')) # Make a type variable to identify if PV or wind.
+#   smr <- tmp %>% group_by(geo, type) %>%  # This is used to keep the geo and type variables when summarising.
+#     summarise(national = mean(national, na.rm = T),
+#               onshore = mean(onshore, na.rm = T),
+#               offshore = mean(offshore, na.rm = T)) # Calculate mean for the variables.
+#     
+#   ninja_list[[i]] <- smr # Make a list
+# }
+# 
+# ninja <- do.call(bind_rows, ninja_list) %>% # Binds the data from ninja_list to one dataframe.
+#   pivot_longer(cols = c('national', 'onshore', 'offshore'), 
+#                names_to = 'type_2', values_to = 'cf') %>% 
+#   mutate(siec = case_when(type == 'pv' & type_2 == 'national' ~ 'RA420',
+#                           type == 'wind' & type_2 == 'onshore' ~ 'RA310',
+#                           type == 'wind' & type_2 == 'offshore' ~ 'RA320',
+#                           .default = NA))
 
 
 

@@ -28,12 +28,13 @@ for (x in values_of_interest){
 
 euro_cap_2023 <- euro_cap %>% 
   filter(year == 2023 & siec %in% c('RA310', 'RA320', 'RA420')) %>% 
-  select(!c(source, scenario))
+  select(!c(source, scenario, unit))
 
-eu_nrg %>% 
-  filter(siec %in% c('RA310', 'RA320', 'RA420') & unit == 'GW' & 
+eu_nrg_giga %>% 
+  filter(siec %in% c('RA310', 'RA320', 'RA420') &
            ((year == 2030 & target == 1) | (year == 2040 & target == 1))) %>% 
-  select(country, geo, siec, type, unit, year, cap) %>% 
+  select(country, geo, siec, type, year, cap_gw) %>% 
+  rename(cap = cap_gw) %>% 
   rbind(euro_cap_2023) %>% 
 #  complete(year, nesting(country, geo, siec, type)) %>% 
   pivot_wider(names_from = year, values_from = cap) %>% 
