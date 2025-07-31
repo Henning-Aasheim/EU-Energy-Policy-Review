@@ -56,8 +56,8 @@ tm_shape(geodata, projection = 'EPSG:3035', # Dataset and projection for the bas
   tm_borders(col = 'darkgrey') + # borders for the base map
   tm_shape(target_2030) + # Dataset for the target map
   tm_polygons('Capacity targets for 2030 (GW)', title = 'Targets', fill = 'cap_gw', # Data for the target map (using the variable cap)
-              breaks = c(0, 5, 10, 20, 50, 100, 200)) + # Breaks set the intervals shown in the legend
-  tm_facets('siec', drop.NA.facets = T) + # Makes seperat facet plots for wind onshore, wind offshore and solar photovoltaic
+              breaks = c(0, 5, 10, 20, 50, 100, 400)) + # Breaks set the intervals shown in the legend
+  tm_facets('type', drop.NA.facets = T) + # Makes seperat facet plots for wind onshore, wind offshore and solar photovoltaic
   tm_layout(legend.position = tm_pos_out('right', 'center')) + # Places the legend to the right, and centres it vertically
   tm_title('Capacity targets for 2030 (GW)') # Title
 
@@ -83,7 +83,7 @@ tm_shape(geodata, projection = 'EPSG:3035', # Dataset and projection for the bas
   tm_borders(col = 'darkgrey') + # borders for the base map
   tm_shape(target_2040) + # Dataset for the target map
   tm_polygons('Capacity targets for 2040 (GW)', title = 'Targets', fill = 'cap_gw', # Data for the target map (using the variable cap)
-              breaks = c(0, 5, 10, 20, 50, 100, 200)) + # Breaks set the intervals shown in the legend
+              breaks = c(0, 5, 10, 20, 50, 100, 400)) + # Breaks set the intervals shown in the legend
   tm_facets('type', drop.NA.facets = T) +# Makes seperat facet plots for wind onshore, wind offshore and solar photovoltaic
   tm_layout(legend.position = tm_pos_out('right', 'center')) + # Places the legend to the right, and centres it vertically
   tm_title('Capacity targets for 2040 (GW)') # Title
