@@ -14,7 +14,7 @@ Here are some information. First on the regions we ahve chosen, and then some im
 ## Target map
 
 <p align='center'>
-  <img src='/img/map_2030.png' width=40%>
+  <img src='/img/target_capacity.png' width=40%>
 </p>
 
 ## Bar chart
