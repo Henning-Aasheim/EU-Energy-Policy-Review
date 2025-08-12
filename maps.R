@@ -108,6 +108,45 @@ tm_shape(geodata, crs = 'EPSG:3035', # Dataset and projection for the base map.
             title.position = tm_pos_out('center', 'top', pos.h = 'center')) + # Removes border around the panel label.
   tm_title('Capacity targets for 2040 (GW)') # Title
 
+# Targets 2030-2050 ------------------------------------------------------------
+
+trg <- eu_nrg_giga %>% 
+  filter(target == 1 & 
+         year %in% c(2030, 2040, 2050) & 
+         siec %in% c('RA310', 'RA320', 'RA420')) %>% 
+  mutate(type2 = paste0(type, ' ', year))
+
+# Joins the target data with the map data.
+
+target <- inner_join(geodata, trg, by = 'geo') 
+
+# Creates a tmap plot using the EPSG:3035 projection. 
+
+map <- tm_shape(geodata, crs = 'EPSG:3035', # Dataset and projection for the base map.
+         xlim = c(2400000, 6000000), # Latitude limits (Note that these are not the normal ones).
+         ylim = c(1320000, 5500000)) + # Longitude limits.
+  tm_fill('grey') + # Fill for the base map.
+  tm_borders(col = 'darkgrey') + # borders for the base map.
+tm_shape(target) + # Dataset for the target map.
+  tm_polygons(fill = 'cap_gw', # Data for the target map (using the variable cap).
+              fill.legend = tm_legend(frame = FALSE, # Removes the border around the legend (But has to be used in tandem with fill.scale)
+                                      title ='Target capacity (logarithmic scale)', # Adds title to the legend.
+                                      orientation = 'landscape', # Puts the legend in landscape mode.
+                                      position = tm_pos_out('center', 'bottom', pos.h = 'center'), # Centres the legend at the bottom.
+                                      width = 60, # Sets the Width of the legend.
+                                      title.align = 'center', # Helps to centre the legend title. How? Idk...
+                                      text.size = .5), # Titles the legend
+              fill.scale = tm_scale_continuous(limits = c(0, 400), trans = 'log1p', ticks = c(0, 1.2, 3.5, 8, 20, 35, 90, 150, 400))) + # Breaks set the intervals shown in the legend
+  tm_facets('type', drop.NA.facets = T, columns = 'year') + # Makes seperat facet plots for wind onshore, wind offshore and solar photovoltaic
+  tm_layout(panel.label.bg.color = 'white', # Sets panel lable background color to white.
+            frame = F, # Removes border around map.
+            panel.label.frame = F, # Removes the border around the panel label
+            title.position = tm_pos_out('center', 'top', pos.h = 'center')) + # Removes border around the panel label.
+  tm_title('Capacity targets for 2030, 2040, and 2050 (GW)') + # Title
+  tm_options()
+
+tmap_save(map, dpi = 300, height = 2000, width = 2000, outer.margins = NA)
+  
 # Map of the regions -----------------------------------------------------------
 
 # Map of regions which is generally based on van Greevenbroek et al., but is
