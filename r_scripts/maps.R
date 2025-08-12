@@ -62,7 +62,7 @@ tm_shape(geodata, crs = 'EPSG:3035', # Dataset and projection for the base map.
                                       position = tm_pos_out('center', 'bottom', pos.h = 'center'), # Centres the legend at the bottom.
                                       width = 60, # Sets the Width of the legend.
                                       title.align = 'center', # Helps to centre the legend title. How? Idk...
-                                      text.size = .5), # Titles the legend
+                                      text.size = .5), # Changes legend size (smaller becomes larger somehow)
               fill.scale = tm_scale_continuous(limits = c(0, 215))) + # Breaks set the intervals shown in the legend
   tm_facets('type', drop.NA.facets = T, type = 'stack') + # Makes seperat facet plots for wind onshore, wind offshore and solar photovoltaic
   tm_layout(panel.label.bg.color = 'white', # Sets panel lable background color to white.
