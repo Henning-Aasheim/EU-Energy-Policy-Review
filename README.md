@@ -6,7 +6,7 @@ The map below shows a cursory glance at the targets for each nation. They are di
 <p align='center'>
   <img src='/img/target_capacity.png' width=40%>
   <br>
-  <i>Figure 1: target capacity map</i>
+  <i>Figure 1: target capacity map for 2030, 2040, and 2050 (GW)</i>
 </p>
 
 We also include another visualisation aid in Figure 2, which shows the targets of the respective countries in a bar chart. The chart is dominated by the large countries which does make it hard to read for smaller values, however, we have decided to present the targets as is to see the big picture of the capacity build-out. 
@@ -15,7 +15,7 @@ We also include another visualisation aid in Figure 2, which shows the targets o
 <p align='center'>
   <img src='/img/bar.png' width=50%>
   <br>
-  <i>Figure 2: Target capacity bar chart</i>
+  <i>Figure 2: Target capacity bar chart for latest observed data (2023), 2030, and 2040 (GW)</i>
 </p>
 
 ## Regions
@@ -24,7 +24,7 @@ The countries are also divided into regions. This is mostly based on the regions
 <p align='center'>
   <img src='/img/regions.png' width=40%>
   <br>
-  <i>Map of the regions</i>
+  <i>Figure 3: map of the regions</i>
 </p>
 
 [^1]: Our data includes a variable that excludes all values that are not concrete targets called *target_exp*, if this is a necessary difference to make.
