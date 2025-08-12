@@ -5,6 +5,7 @@ The map below shows a cursory glance at the targets for each nation. They are di
 
 <p align='center'>
   <img src='/img/target_capacity.png' width=40%>
+  <br>
   <i>Figure 1: target capacity map</i>
 </p>
 
@@ -13,6 +14,7 @@ We also include another visualisation aid in Figure 2, which shows the targets o
 
 <p align='center'>
   <img src='/img/bar.png' width=50%>
+  <br>
   <i>Figure 2: Target capacity bar chart</i>
 </p>
 
@@ -21,6 +23,7 @@ The countries are also divided into regions. This is mostly based on the regions
 
 <p align='center'>
   <img src='/img/regions.png' width=40%>
+  <br>
   <i>Map of the regions</i>
 </p>
 
