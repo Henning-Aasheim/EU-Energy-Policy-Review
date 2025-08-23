@@ -15,7 +15,7 @@ We also include another visualisation aid in Figure 2, which shows the targets o
 
 
 <p align='center'>
-  <img src='/img/bar.png' width=50%>
+  <img src='/img/bar_chart.png' width=50%>
   <br>
   <i>Figure 2: Target capacity bar chart for latest observed data (2023), 2030, and 2040 (GW)</i>
 </p>
