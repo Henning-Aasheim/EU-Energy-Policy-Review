@@ -43,6 +43,12 @@ load('data/cf.Rdata')
 
 eu_nrg <- import_list('data/EU Energy Policy Review.xlsx', which = 6:33, rbind = T)
 
+if(!file.exists('data/energy_review.csv')){
+  write.csv(eu_nrg, 'data/energy_review.csv', row.names = F)
+} else {
+  print(paste0('A file named energy_review.csv already exists in directory'))
+}
+
 # Adding capacity factor
 
 eu_nrg_prod <- eu_nrg %>% 
@@ -108,7 +114,12 @@ eu_nrg_giga <- eu_nrg %>%
                                 siec == 'RA420' & unit == 'GWh' ~ cap_gwh_max/(pv*8760),
                                 .default = cap_gw_max)) %>% 
   select(!c(unit, pv, offshore, onshore, `_file`, cap_min, cap_max, cap))
-  
+
+if(!file.exists('data/energy_review_giga.Rdata')){
+  save(eu_nrg_giga, file = 'data/energy_review_gigawatt.Rdata')
+} else {
+  print(paste0('A file named energy_review.csv already exists in directory'))
+}
 
 
 # Eurostat ---------------------------------------------------------------------
@@ -154,8 +165,6 @@ euro_cap <- nrg_retrive %>%
 ## Loads production data -------------------------------------------------------
 
 load('data/nrg_prod_nf.Rdata')
-
-
 
 euro_prod <- nrg_prod_nf_retrieve %>% # Filters countries
   filter(geo %in% country_codes & # Filters countries 
