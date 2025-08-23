@@ -1,7 +1,7 @@
 # EU-Energy-Policy-Review
 This is a repository for files associated with the EU Energy Policy Review project. Throug the summer of 2025 we have gathered data on the energy policy of the EU memeber states &ndash; except Cyprus and Malta &ndash; as well as Norway, Switzerland, and the United Kingdom. This data is gathered on behalf of the [Wind In My BackYard (WIMBY)](https://wimby.eu/) project to create models for renewable energy build-out that is more in tune with social and political realities.
 
-The main dataset can be found here: [EU policy data](data/EU Energy policy Review.xls)
+The main dataset can be found here: [EU policy data](data/EU Energy policy Review.xlsx)
 
 The map below shows a cursory glance at the targets for each nation. They are divided into solar and onshore- and offshore wind, and for the years 2030, 2040, and 2050. Not all countries have targets, and some of the targets seen in this map are expected development paths, rather than explicit targets.[^1] Note that this map only shows some of the data. Some countries only have data up until 2030, others have only to 2035, etc. We have made the decision to only show the totals at the start of each decade to keep the figure readable. The specific information is available in our main dataset.
 
