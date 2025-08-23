@@ -9,7 +9,7 @@ euro_cap_2023 <- euro_cap %>%
   filter(year == 2023 & siec %in% c('RA310', 'RA320', 'RA420')) %>% 
   select(!c(source, scenario, unit))
 
-eu_nrg_giga %>% 
+bar_chart <- eu_nrg_giga %>% 
   filter(siec %in% c('RA310', 'RA320', 'RA420') &
            ((year == 2030 & target == 1) | (year == 2040 & target == 1) | (year == 2023 & source == 'UKGOV'))) %>% 
   select(country, geo, siec, type, year, cap_gw) %>% 
@@ -26,12 +26,25 @@ eu_nrg_giga %>%
   pivot_longer(cols = starts_with('cap'), names_to = 'year', values_to = 'cap') %>% # Reverts list to long format.
   mutate(year = as.numeric(str_remove(year, '[^0-9]+'))) %>%  # Removes cap_ and makes the years numeric.
   ggplot(aes(x = fct_reorder(country, cap), y = cap)) +
-  geom_bar(aes(fill = factor(year, levels = c('2040', '2030', '2023'))), stat = 'identity', position = 'stack') +
+  geom_bar(aes(fill = factor(year, levels = c('2040', '2030', '2023'))), 
+           stat = 'identity', position = 'stack') +
   facet_wrap(~factor(type), scale = 'free_x') +
   coord_flip() +
-  scale_fill_manual(values = c('#227C9D', '#17C3B2', '#FFCB77')) +
+  scale_fill_manual(values = c('#FFCB77', '#17C3B2', '#227C9D'), limits = c('2023', '2030', '2040')) +
   labs(x = 'Countries',
        y = 'Capacity',
-       fill = 'Year') +
-  theme_minimal()
+       fill = 'Year:') +
+  theme_minimal() +
+  theme(axis.title.x = element_text(margin = margin(t = 5, unit = 'mm'), 
+                                    face = 'bold', size = 15),
+        axis.title.y = element_text(margin = margin(r = 5, unit = 'mm'), 
+                                    face = 'bold', size = 15),
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 10),
+        strip.text = element_text(size = 13, face = 'bold'),
+        legend.title = element_text(size = 13, face = 'bold'),
+        legend.text = element_text(size = 10),
+        legend.position = 'bottom',
+        panel.grid.major.y = element_blank())
 
+ggsave('img/bar_chart.png', width = 30, height = 20, units = 'cm', dpi = 300, bg = 'white')
