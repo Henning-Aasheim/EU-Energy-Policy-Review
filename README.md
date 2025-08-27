@@ -1,7 +1,9 @@
 # EU-Energy-Policy-Review
 This is a repository for files associated with the EU Energy Policy Review project. Throug the summer of 2025 we have gathered data on the energy policy of the EU memeber states &ndash; except Cyprus and Malta &ndash; as well as Norway, Switzerland, and the United Kingdom. This data is gathered on behalf of the [Wind In My BackYard (WIMBY)](https://wimby.eu/) project to create models for renewable energy build-out that is more in tune with social and political realities.
 
-The main dataset (.csv) can be found here: [EU policy data](data/energy_targets.csv)
+Report can be found here: [EU Energy Policy report]()
+
+The main dataset (.csv) can be found here: [EU energy policy data](data/energy_targets.csv)
 
 The dataset in gigawatt capacity only can be found here: [Gigawatt data](data/energy_target_capacity.Rdata)
 
