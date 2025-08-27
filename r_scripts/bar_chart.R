@@ -3,13 +3,23 @@
 library(forcats)
 library(tidyverse)
 
+# Load necessary data ----------------------------------------------------------
+
+# Target data 
+
+load('data/energy_target_capacity.Rdata')
+
+# Eurostat data
+
+load('data/eurostat_capacity.Rdata')
+
 # Including Eurostat data ------------------------------------------------------
 
-euro_cap_2023 <- euro_cap %>% 
+euro_cap_2023 <- eurostat_capacity %>% 
   filter(year == 2023 & siec %in% c('RA310', 'RA320', 'RA420')) %>% 
   select(!c(source, scenario, unit))
 
-bar_chart <- eu_nrg_giga %>% 
+bar_chart <- energy_target_capacity %>% 
   filter(siec %in% c('RA310', 'RA320', 'RA420') &
            ((year == 2030 & target == 1) | (year == 2040 & target == 1) | (year == 2023 & source == 'UKGOV'))) %>% 
   select(country, geo, siec, type, year, cap_gw) %>% 
@@ -47,4 +57,6 @@ bar_chart <- eu_nrg_giga %>%
         legend.position = 'bottom',
         panel.grid.major.y = element_blank())
 
-ggsave('img/bar_chart.png', width = 30, height = 20, units = 'cm', dpi = 300, bg = 'white')
+bar_chart
+
+#ggsave('img/bar_chart.png', width = 30, height = 20, units = 'cm', dpi = 300, bg = 'white')

@@ -41,19 +41,21 @@ load('data/cf.Rdata')
 # import_list() takes the following arguments: file name, the sheets (by number),
 # and a command to bind the rows together.
 
-eu_nrg <- import_list('data/EU Energy Policy Review.xlsx', which = 6:33, rbind = T)
+energy_targets <- import_list('data/EU Energy Policy Review.xlsx', which = 6:33, rbind = T)
 
-if(!file.exists('data/energy_review.csv')){
-  write.csv(eu_nrg, 'data/energy_review.csv', row.names = F)
+# Saving as csv file
+
+if(!file.exists('data/energy_targets.csv')){
+  write.csv(energy_targets, 'data/energy_targets.csv', row.names = F)
 } else {
-  print(paste0('A file named energy_review.csv already exists in directory'))
+  print(paste0('A file named energy_targets.csv already exists in directory'))
 }
 
-# Adding capacity factor
+# Energy production ------------------------------------------------------------
 
-eu_nrg_prod <- eu_nrg %>% 
+energy_production <- energy_targets %>% 
   filter(siec %in% c('RA310', 'RA320', 'RA420') & (unit == 'GWh' | unit == 'TWh')) %>% 
-  left_join(capacity_factor, by = 'geo') %>% 
+  left_join(capacity_factor, by = 'geo') %>% # Adding capacity factor
   mutate(cap_gw = NA,
          cap_gw = case_when(siec == 'RA310' & unit == 'TWh' ~ (cap*1000)/(onshore*8760),
                             siec == 'RA310' & unit == 'GWh' ~ cap/(onshore*8760),
@@ -63,7 +65,9 @@ eu_nrg_prod <- eu_nrg %>%
                             siec == 'RA420' & unit == 'GWh' ~ cap/(pv*8760),
                             .default = cap_gw))
 
-eu_nrg_giga <- eu_nrg %>% 
+# Energy target capacity -------------------------------------------------------
+
+energy_target_capacity <- energy_targets %>% 
   left_join(capacity_factor, by = 'geo') %>% 
   mutate(cap_gwh = NA,
          cap_gwh = case_when(unit == 'ktoe' ~ cap*11.63, # 11.63 is used as a conversion factor between ktoe and GWh.
@@ -115,10 +119,12 @@ eu_nrg_giga <- eu_nrg %>%
                                 .default = cap_gw_max)) %>% 
   select(!c(unit, pv, offshore, onshore, `_file`, cap_min, cap_max, cap))
 
-if(!file.exists('data/energy_review_giga.Rdata')){
-  save(eu_nrg_giga, file = 'data/energy_review_gigawatt.Rdata')
+# Saving as Rdata file
+
+if(!file.exists('data/energy_target_capacity.Rdata')){
+  save(energy_target_capacity, file = 'data/energy_target_capacity.Rdata')
 } else {
-  print(paste0('A file named energy_review.csv already exists in directory'))
+  print(paste0('A file named energy_target_capacity.Rdata already exists in directory'))
 }
 
 
@@ -145,9 +151,9 @@ switzerland <- read.csv('data/switzerland.csv', sep = ',') %>%
 
 load('data/nrg.Rdata')
 
-# First processing:
+# Processing:
 
-euro_cap <- nrg_retrive %>% 
+eurostat_capacity <- nrg_retrive %>% 
   filter(geo %in% country_codes & # Filters countries
            plant_tec == 'CAP_NET_ELC' & # Filters capacity
            siec %in% c('RA300', 'RA310', 'RA320', 'RA400', 'RA410', 'RA420', 'N9000')) %>% # Filters type of capacity
@@ -161,6 +167,14 @@ euro_cap <- nrg_retrive %>%
   rename(cap = gw_capacity) %>% # Renames gw_capacity
   select(country, geo, siec, type, unit, source, scenario, year, cap) %>%  # Selects the needed variables
   rbind(switzerland[which(switzerland$unit == 'GW'),]) # Adds data from Switzerland
+
+# Saving file
+
+if(!file.exists('data/eurostat_capacity.Rdata')){
+  save(eurostat_capacity, file = 'data/eurostat_capacity.Rdata')
+} else {
+  print(paste0('A file named eurostat_capacity.Rdata already exists in directory'))
+}
 
 ## Loads production data -------------------------------------------------------
 
@@ -197,4 +211,12 @@ geodata <- ne_countries(scale = 50, returnclass = 'sf') %>%
                          geo == 'GR' ~ 'EL',
                          .default = as.character(geo))) %>% 
   rename(status = type)
+
+# Saving geodata file
+
+if(!file.exists('data/geodata.Rdata')){
+  save(geodata, file = 'data/geodata.Rdata')
+} else {
+  print(paste0('A file named geodata.Rdata already exists in directory'))
+}
 
